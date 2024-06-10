@@ -29,5 +29,5 @@ flutter:
         - asset: assets/fonts/Lato/Lato-Regular.ttf
         - asset: assets/fonts/Lato/Lato-Bold.ttf
           weight: 700
-        - asset: assets/fonts/Lato/Lato-italic.ttf
+        - asset: assets/fonts/Lato/Lato-Italic.ttf
           style: italic

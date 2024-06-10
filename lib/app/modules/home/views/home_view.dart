@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pos_app/utils/color_pallete.dart';
 
-import '../../../../utils/menu_navigator.dart';
+import '../../../../widgets/menu_navigator.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -16,31 +16,37 @@ class HomeView extends GetView<HomeController> {
           title: const Text(
             'Application',
             style: TextStyle(
-              color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
           ),
           actions: [
             IconButton(
+              style: IconButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(100),
+                  side: const BorderSide(color: Colors.grey),
+                ),
+              ),
               onPressed: () {},
               icon: const Icon(
                 Icons.shopping_cart_outlined,
-                color: Colors.white,
+                // color: Colors.white,
               ),
             ),
           ],
-          backgroundColor: primaryDark,
+          // backgroundColor: primary,
         ),
         body: Obx(
-          () => Center(
-            child: contentItems.elementAt(controller.selectedIndex.value),
-          ),
+          () => contentItems.elementAt(controller.selectedIndex.value),
         ),
         bottomNavigationBar: Obx(
           () => BottomNavigationBar(
             items: navigatorMenu,
             currentIndex: controller.selectedIndex.value,
             selectedItemColor: primary,
+            unselectedItemColor: Colors.grey,
+            type: BottomNavigationBarType.fixed,
+            showUnselectedLabels: true,
             onTap: (value) => controller.selectedIndex.value = value,
           ),
         ),

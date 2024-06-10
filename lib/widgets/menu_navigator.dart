@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:pos_app/app/modules/home/widgets/homepage.dart';
 
 const List<Widget> contentItems = <Widget>[
-  Text('Index 0: Home'),
+  HomePage(),
   Text('Index 1: Business'),
   Text('Index 2: School'),
+  Text('Index 3: Settings'),
 ];
 
 const List<BottomNavigationBarItem> navigatorMenu = <BottomNavigationBarItem>[
@@ -12,11 +14,15 @@ const List<BottomNavigationBarItem> navigatorMenu = <BottomNavigationBarItem>[
     label: 'Home',
   ),
   BottomNavigationBarItem(
-    icon: Icon(Icons.business),
-    label: 'Business',
+    icon: Icon(Icons.history),
+    label: 'History',
   ),
   BottomNavigationBarItem(
-    icon: Icon(Icons.school),
-    label: 'School',
+    icon: Icon(Icons.receipt_long),
+    label: 'Order',
+  ),
+  BottomNavigationBarItem(
+    icon: Icon(Icons.person),
+    label: 'Profile',
   ),
 ];
