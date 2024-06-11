@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:pos_app/app/modules/home/widgets/homepage.dart';
+import 'package:pos_app/app/modules/history/views/history_view.dart';
+import 'package:pos_app/app/modules/home/views/homepage.dart';
+import 'package:pos_app/app/modules/order/views/order_view.dart';
+import 'package:pos_app/app/modules/profile/views/profile_view.dart';
 
 const List<Widget> contentItems = <Widget>[
   HomePage(),
-  Text('Index 1: Business'),
-  Text('Index 2: School'),
-  Text('Index 3: Settings'),
+  HistoryView(),
+  OrderView(),
+  ProfileView(),
 ];
 
 const List<BottomNavigationBarItem> navigatorMenu = <BottomNavigationBarItem>[
