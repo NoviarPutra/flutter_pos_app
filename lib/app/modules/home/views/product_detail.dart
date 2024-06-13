@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../widgets/basic_icon_button.dart';
+import '../../../widgets/basic_icon_button.dart';
 
 class ProductDetailScreen extends StatelessWidget {
   const ProductDetailScreen({
@@ -47,23 +47,23 @@ class ProductDetailScreen extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: Container(
-        padding: const EdgeInsets.symmetric(vertical: 10),
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Container(
-              child: Text('Button Counter'),
-            ),
-            Container(
-              child: Text('Button Action'),
-            ),
-          ],
-        ),
-      ),
+      // bottomNavigationBar: Container(
+      //   padding: const EdgeInsets.symmetric(vertical: 10),
+      //   decoration: BoxDecoration(
+      //     border: Border.all(color: Colors.grey),
+      //   ),
+      //   child: Row(
+      //     mainAxisAlignment: MainAxisAlignment.spaceAround,
+      //     children: [
+      //       Container(
+      //         child: Text('Button Counter'),
+      //       ),
+      //       Container(
+      //         child: Text('Button Action'),
+      //       ),
+      //     ],
+      //   ),
+      // ),
     );
   }
 }

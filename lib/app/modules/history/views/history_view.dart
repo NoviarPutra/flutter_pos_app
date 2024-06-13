@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:pos_app/widgets/basic_icon_button.dart';
 
 import '../controllers/history_controller.dart';
 

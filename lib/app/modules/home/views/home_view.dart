@@ -3,7 +3,8 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 import 'package:get/get.dart';
 import 'package:pos_app/app/modules/home/views/product_detail.dart';
-import 'package:pos_app/widgets/basic_icon_button.dart';
+import 'package:pos_app/app/modules/home/widgets/card_product.dart';
+import 'package:pos_app/app/widgets/basic_icon_button.dart';
 
 import '../../../../widgets/menu_navigator.dart';
 import '../controllers/home_controller.dart';
@@ -25,7 +26,6 @@ class HomeView extends GetView<HomeController> {
             basicIconButton(
                 icon: const Icon(Icons.shopping_bag_outlined), onPressed: () {})
           ],
-          // backgroundColor: primary,
         ),
         body: SafeArea(
           child: Column(
@@ -107,12 +107,8 @@ class HomeView extends GetView<HomeController> {
                                     ),
                                   );
                                 },
-                                child: Container(
-                                  margin: const EdgeInsets.all(5),
-                                  decoration: BoxDecoration(
-                                    color: controller.colors[index],
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
+                                child: cardProduct(
+                                  decorationColor: controller.colors[index],
                                 ),
                               );
                             },
