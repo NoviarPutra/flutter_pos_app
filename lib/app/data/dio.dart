@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class DioService {
   DioService._internal();
@@ -7,7 +8,7 @@ class DioService {
 
   Dio dio = Dio(
     BaseOptions(
-      baseUrl: 'https://api.github.com/',
+      baseUrl: dotenv.get('BASE_URL'),
     ),
   );
 }
