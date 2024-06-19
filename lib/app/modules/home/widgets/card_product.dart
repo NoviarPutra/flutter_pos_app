@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 Widget cardProduct({
+  required String productName,
+  required String price,
+  required String stock,
   Color? decorationColor,
 }) {
   return Card(
@@ -27,29 +30,29 @@ Widget cardProduct({
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: const [
+              children: [
                 FittedBox(
                   child: Text(
-                    'Product',
-                    style: TextStyle(
+                    productName,
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Rp. 100.000',
-                      style: TextStyle(
+                      'Rp. $price',
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 14,
                       ),
                     ),
                     Text(
-                      'Stock: -',
-                      style: TextStyle(
+                      'Stock: $stock',
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 14,
                       ),

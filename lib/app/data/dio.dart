@@ -1,12 +1,12 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-class DioService {
-  DioService._internal();
-  static final DioService instance = DioService._internal();
-  factory DioService() => instance;
+class DioInstance {
+  DioInstance._internal();
+  static final DioInstance instance = DioInstance._internal();
+  factory DioInstance() => instance;
 
-  Dio dio = Dio(
+  Dio service = Dio(
     BaseOptions(
       baseUrl: dotenv.get('BASE_URL'),
     ),
