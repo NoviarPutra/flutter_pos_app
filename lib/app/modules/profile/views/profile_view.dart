@@ -10,12 +10,17 @@ class ProfileView extends GetView<ProfileController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: const Text(
+          'Profile',
+        ),
         iconTheme: const IconThemeData(color: Colors.black),
       ),
-      body: const Center(
-        child: Text(
-          'ProfileView is working',
-          style: TextStyle(fontSize: 20),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            controller.logout();
+          },
+          child: const Text('Logout'),
         ),
       ),
     );
