@@ -10,8 +10,13 @@ dependencies:
   dio: ^5.4.3+1
   flutter:
     sdk: flutter
+  flutter_dotenv: ^5.1.0
+  flutter_easyloading: ^3.0.5
   flutter_form_builder: ^9.3.0
+  form_builder_validators: ^10.0.1
   get: 4.6.6
+  get_storage: ^2.1.1
+  infinite_scroll_pagination: ^4.0.0
 
 dev_dependencies:
   flutter_lints: 4.0.0
@@ -21,6 +26,7 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
+    - .env
     - assets/images/
     - assets/fonts/
   fonts:
@@ -29,5 +35,5 @@ flutter:
         - asset: assets/fonts/Lato/Lato-Regular.ttf
         - asset: assets/fonts/Lato/Lato-Bold.ttf
           weight: 700
-        - asset: assets/fonts/Lato/Lato-italic.ttf
+        - asset: assets/fonts/Lato/Lato-Italic.ttf
           style: italic
