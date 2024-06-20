@@ -47,7 +47,7 @@ class LoginController extends GetxController {
         //   Get.offAllNamed('/home');
         // }
         // EasyLoading.showError(response.message.toString());
-        print(payload);
+        // print(payload);
       } catch (e) {
         EasyLoading.showError("Terjadi kesalahan, silahkan coba lagi");
       } finally {
