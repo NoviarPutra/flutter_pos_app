@@ -88,8 +88,8 @@ class HomeView extends GetView<HomeController> {
                         "Menu",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                          color: Colors.black54,
+                          fontSize: 22,
+                          color: Colors.black,
                         ),
                       ),
                     ),
@@ -115,6 +115,7 @@ class HomeView extends GetView<HomeController> {
                                   Get.to(
                                     () => ProductDetailScreen(
                                       productId: item.id.toString(),
+                                      url: item.image.toString(),
                                     ),
                                   );
                                 },
@@ -122,6 +123,7 @@ class HomeView extends GetView<HomeController> {
                                   productName: item.name.toString(),
                                   price: item.price.toString(),
                                   stock: item.stock.toString(),
+                                  url: item.image.toString(),
                                 ),
                               );
                             },

@@ -1,29 +1,31 @@
 class ProductsResponseModel {
   int? code;
   String? status;
-  int? totalItems;
+  int? total;
   int? totalPages;
-  int? currentPage;
-  int? pageSize;
+  int? page;
+  int? limit;
+  int? skip;
   List<DataProductResponse>? data;
 
   ProductsResponseModel({
     this.code,
     this.status,
-    this.totalItems,
+    this.total,
     this.totalPages,
-    this.currentPage,
-    this.pageSize,
+    this.page,
+    this.limit,
     this.data,
   });
 
   ProductsResponseModel.fromJson(Map<String, dynamic> json) {
     code = json['code'];
     status = json['status'];
-    totalItems = json['totalItems'];
-    totalPages = json['totalPages'];
-    currentPage = json['currentPage'];
-    pageSize = json['pageSize'];
+    total = json['total'];
+    totalPages = json['total_pages'];
+    page = json['page'];
+    limit = json['limit'];
+    skip = json['skip'];
     if (json['data'] != null) {
       data = <DataProductResponse>[];
       json['data'].forEach((v) {
@@ -36,10 +38,11 @@ class ProductsResponseModel {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['code'] = code;
     data['status'] = status;
-    data['totalItems'] = totalItems;
-    data['totalPages'] = totalPages;
-    data['currentPage'] = currentPage;
-    data['pageSize'] = pageSize;
+    data['total'] = total;
+    data['total_pages'] = totalPages;
+    data['page'] = page;
+    data['limit'] = limit;
+    data['skip'] = skip;
     if (this.data != null) {
       data['data'] = this.data!.map((v) => v.toJson()).toList();
     }

@@ -5,7 +5,7 @@ import 'package:pos_app/app/models/product_response_model.dart';
 import 'package:pos_app/app/services/product_service.dart';
 
 class HomeController extends GetxController {
-  static const _pageSize = 12;
+  static const _pageSize = 8;
   ProductService productService = ProductService();
   RxInt selectedIndex = 0.obs;
   RxBool isLoading = false.obs;
@@ -46,7 +46,6 @@ class HomeController extends GetxController {
       };
       final response = await productService.getProducts(params: params);
       final isLastPage = response.data!.length < _pageSize;
-      print(params);
       if (isLastPage) {
         productPaging.appendLastPage(response.data!);
       } else {

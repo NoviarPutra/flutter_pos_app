@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 Widget cardProduct({
+  required String url,
   required String productName,
   required String price,
   required String stock,
@@ -17,7 +18,7 @@ Widget cardProduct({
               top: Radius.circular(8.0), // Same border radius as the Card
             ),
             child: Image.network(
-              'https://picsum.photos/seed/picsum/200/300',
+              url,
               fit: BoxFit.fill,
               width: double.infinity,
             ),

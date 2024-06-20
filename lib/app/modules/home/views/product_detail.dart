@@ -6,10 +6,12 @@ import '../../../widgets/basic_icon_button.dart';
 class ProductDetailScreen extends StatelessWidget {
   const ProductDetailScreen({
     required this.productId,
+    required this.url,
     super.key,
   });
 
   final String productId;
+  final String url;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,7 @@ class ProductDetailScreen extends StatelessWidget {
         ),
         flexibleSpace: FlexibleSpaceBar(
           background: Image.network(
-            'https://picsum.photos/seed/picsum/200/300',
+            url,
             fit: BoxFit.fill,
           ),
         ),
