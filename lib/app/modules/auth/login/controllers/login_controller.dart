@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
@@ -26,10 +27,6 @@ class LoginController extends GetxController {
     super.onClose();
   }
 
-  // void login() {
-  //   storage.write('isLogin', true);
-  //   Get.offAllNamed('/home');
-  // }
   Future<void> login() async {
     if (formKey.currentState?.saveAndValidate() ?? false) {
       EasyLoading.show(status: 'Loading...');
@@ -40,16 +37,15 @@ class LoginController extends GetxController {
           'email': formData?['email'],
           'password': formData?['password'],
         };
-        // final response = await authService.login(data: payload);
-        // if (response.code == 200) {
-        //   EasyLoading.showSuccess(response.message.toString());
-        //   storage.write('isLogin', true);
-        //   Get.offAllNamed('/home');
-        // }
-        // EasyLoading.showError(response.message.toString());
-        // print(payload);
+        final response = await authService.login(data: payload);
+        storage.write('isLogin', true);
+        Get.offAllNamed('/home');
+        EasyLoading.showSuccess(response.message.toString());
       } catch (e) {
-        EasyLoading.showError("Terjadi kesalahan, silahkan coba lagi");
+        if (e is DioException) {
+          EasyLoading.showError(e.response?.data['message'].toString() ??
+              "Terjadi kesalahan, silahkan coba lagi");
+        }
       } finally {
         EasyLoading.dismiss();
         isLoading.value = false;

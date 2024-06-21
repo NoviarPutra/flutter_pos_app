@@ -8,7 +8,7 @@ class AuthenticationService {
 
   Future<LoginResponseModel> login({Map<String, dynamic>? data}) async {
     final service = DioInstance().service;
-    final response = await service.post('/login', data: data);
+    final response = await service.post('/authentication/login', data: data);
     return LoginResponseModel.fromJson(response.data);
   }
 }
