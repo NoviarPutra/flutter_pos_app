@@ -103,7 +103,7 @@ class LoginView extends GetView<LoginController> {
                           title: "Buat Akun",
                           color: Colors.grey.shade300,
                           textColor: Colors.black,
-                          onPressed: () {},
+                          onPressed: () => Get.toNamed('/register'),
                         ),
                       ],
                     ),
