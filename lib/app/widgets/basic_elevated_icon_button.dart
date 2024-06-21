@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:pos_app/utils/color_pallete.dart';
 
-class BasicElevatedButton extends StatelessWidget {
-  const BasicElevatedButton({
+import '../../utils/color_pallete.dart';
+
+class BasicElevatedButtonIcon extends StatelessWidget {
+  const BasicElevatedButtonIcon({
     super.key,
     this.color = primary,
     required this.onPressed,
@@ -10,6 +11,7 @@ class BasicElevatedButton extends StatelessWidget {
     this.loadingText = "Loading...",
     this.isLoading = false,
     this.textColor = Colors.white,
+    required this.icon,
   });
 
   final Color color;
@@ -18,12 +20,13 @@ class BasicElevatedButton extends StatelessWidget {
   final String loadingText;
   final bool isLoading;
   final Color textColor;
+  final Widget icon;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      child: ElevatedButton(
+      child: ElevatedButton.icon(
         style: ElevatedButton.styleFrom(
           elevation: 0,
           backgroundColor: isLoading ? Colors.grey : color,
@@ -32,11 +35,12 @@ class BasicElevatedButton extends StatelessWidget {
           ),
         ),
         onPressed: isLoading ? null : onPressed,
-        child: FittedBox(
+        icon: icon,
+        label: FittedBox(
           child: Text(
             isLoading ? loadingText : title,
             style: TextStyle(
-              color: isLoading ? Colors.black : textColor,
+              color: textColor,
               fontSize: 18,
             ),
           ),

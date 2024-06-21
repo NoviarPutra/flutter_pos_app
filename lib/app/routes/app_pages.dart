@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/auth/forgot/bindings/forgot_binding.dart';
+import '../modules/auth/forgot/views/forgot_view.dart';
 import '../modules/auth/login/bindings/login_binding.dart';
 import '../modules/auth/login/views/login_view.dart';
 import '../modules/auth/register/bindings/register_binding.dart';
@@ -50,6 +52,11 @@ class AppPages {
       name: _Paths.REGISTER,
       page: () => const RegisterView(),
       binding: RegisterBinding(),
+    ),
+    GetPage(
+      name: _Paths.FORGOT,
+      page: () => const ForgotView(),
+      binding: ForgotBinding(),
     ),
   ];
 }

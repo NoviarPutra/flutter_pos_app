@@ -33,11 +33,7 @@ class LoginController extends GetxController {
       isLoading.value = true;
       try {
         final formData = formKey.currentState?.value;
-        final payload = {
-          'email': formData?['email'],
-          'password': formData?['password'],
-        };
-        final response = await authService.login(data: payload);
+        final response = await authService.login(data: formData);
         EasyLoading.showSuccess(response.message.toString());
         storage.write('isLogin', true);
         Get.offAllNamed('/home');

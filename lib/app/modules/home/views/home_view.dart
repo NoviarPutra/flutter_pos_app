@@ -24,7 +24,7 @@ class HomeView extends GetView<HomeController> {
           ),
         ),
         actions: [
-          basicIconButton(
+          BasicIconButton(
               icon: const Icon(Icons.shopping_bag_outlined), onPressed: () {})
         ],
       ),
@@ -114,11 +114,15 @@ class HomeView extends GetView<HomeController> {
                                 Get.to(
                                   () => ProductDetailScreen(
                                     productId: item.id.toString(),
+                                    productName: item.name.toString(),
+                                    price: item.price.toString(),
+                                    stock: item.stock.toString(),
+                                    description: item.description.toString(),
                                     url: item.image.toString(),
                                   ),
                                 );
                               },
-                              child: cardProduct(
+                              child: CardProduct(
                                 productName: item.name.toString(),
                                 price: item.price.toString(),
                                 stock: item.stock.toString(),
