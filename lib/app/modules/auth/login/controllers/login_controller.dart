@@ -29,7 +29,7 @@ class LoginController extends GetxController {
 
   Future<void> login() async {
     if (formKey.currentState?.saveAndValidate() ?? false) {
-      EasyLoading.show(status: 'Loading...');
+      EasyLoading.show(status: 'Memuat...');
       isLoading.value = true;
       try {
         final formData = formKey.currentState?.value;
@@ -38,9 +38,9 @@ class LoginController extends GetxController {
           'password': formData?['password'],
         };
         final response = await authService.login(data: payload);
+        EasyLoading.showSuccess(response.message.toString());
         storage.write('isLogin', true);
         Get.offAllNamed('/home');
-        EasyLoading.showSuccess(response.message.toString());
       } catch (e) {
         if (e is DioException) {
           EasyLoading.showError(e.response?.data['message'].toString() ??
