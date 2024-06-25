@@ -1,18 +1,29 @@
 import 'package:flutter/material.dart';
 
-Widget basicIconButton({
-  required Icon icon,
-  required VoidCallback onPressed,
-}) {
-  return IconButton(
-    style: IconButton.styleFrom(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(100),
-        side: const BorderSide(color: Colors.grey),
+class BasicIconButton extends StatelessWidget {
+  const BasicIconButton({
+    super.key,
+    required this.icon,
+    required this.onPressed,
+  });
+
+  final Icon icon;
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return FittedBox(
+      child: IconButton(
+        style: IconButton.styleFrom(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30),
+            side: const BorderSide(color: Colors.grey),
+          ),
+          backgroundColor: Colors.white,
+        ),
+        icon: icon,
+        onPressed: onPressed,
       ),
-      backgroundColor: Colors.white,
-    ),
-    icon: icon,
-    onPressed: onPressed,
-  );
+    );
+  }
 }

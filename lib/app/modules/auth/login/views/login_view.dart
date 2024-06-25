@@ -65,7 +65,7 @@ class LoginView extends GetView<LoginController> {
                             children: [
                               const Text("Password*"),
                               InkWell(
-                                onTap: () {},
+                                onTap: () => Get.toNamed('/forgot'),
                                 child: const Text(
                                   "Lupa Password?",
                                   style: TextStyle(color: primary),
@@ -103,7 +103,7 @@ class LoginView extends GetView<LoginController> {
                           title: "Buat Akun",
                           color: Colors.grey.shade300,
                           textColor: Colors.black,
-                          onPressed: () {},
+                          onPressed: () => Get.offAllNamed('/register'),
                         ),
                       ],
                     ),

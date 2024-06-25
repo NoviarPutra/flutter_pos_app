@@ -25,17 +25,20 @@ class BasicElevatedButton extends StatelessWidget {
       width: double.infinity,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
+          elevation: 0,
           backgroundColor: isLoading ? Colors.grey : color,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),
         ),
         onPressed: isLoading ? null : onPressed,
-        child: Text(
-          isLoading ? loadingText : title,
-          style: TextStyle(
-            color: isLoading ? Colors.black : textColor,
-            fontSize: 18,
+        child: FittedBox(
+          child: Text(
+            isLoading ? loadingText : title,
+            style: TextStyle(
+              color: isLoading ? Colors.black : textColor,
+              fontSize: 18,
+            ),
           ),
         ),
       ),
