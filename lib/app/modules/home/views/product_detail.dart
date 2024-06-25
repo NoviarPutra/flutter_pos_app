@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pos_app/app/modules/home/controllers/product_detail_controller.dart';
 import 'package:pos_app/app/widgets/basic_elevated_icon_button.dart';
 import 'package:pos_app/app/widgets/button_counter.dart';
 import 'package:pos_app/utils/color_pallete.dart';
@@ -26,6 +27,9 @@ class ProductDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ProductDetailController controller = Get.put(ProductDetailController(
+      price: int.parse(price),
+    ));
     return Scaffold(
       appBar: AppBar(
         leading: BasicIconButton(
@@ -110,8 +114,12 @@ class ProductDetailScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: const ButtonCounter(
-                  counter: 0,
+                child: Obx(
+                  () => ButtonCounter(
+                    counter: controller.quantity.value,
+                    onIncrement: () => controller.incrementQuantity(),
+                    onDecrement: () => controller.decrementQuantity(),
+                  ),
                 ),
               ),
             ),
@@ -121,14 +129,16 @@ class ProductDetailScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: BasicElevatedButtonIcon(
-                  icon: const Icon(
-                    Icons.shopping_cart,
-                    color: Colors.white,
+                child: Obx(
+                  () => BasicElevatedButtonIcon(
+                    icon: const Icon(
+                      Icons.shopping_cart,
+                      color: Colors.white,
+                    ),
+                    title: 'Rp. ${controller.priceValue.value}',
+                    textColor: Colors.white,
+                    onPressed: () {},
                   ),
-                  title: 'Rp. 0',
-                  textColor: Colors.white,
-                  onPressed: () {},
                 ),
               ),
             ),

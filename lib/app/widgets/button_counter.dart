@@ -5,9 +5,13 @@ class ButtonCounter extends StatelessWidget {
   const ButtonCounter({
     super.key,
     required this.counter,
+    this.onIncrement,
+    this.onDecrement,
   });
 
   final int counter;
+  final VoidCallback? onIncrement;
+  final VoidCallback? onDecrement;
 
   @override
   Widget build(BuildContext context) {
@@ -15,14 +19,14 @@ class ButtonCounter extends StatelessWidget {
       children: [
         BasicIconButton(
           icon: const Icon(Icons.remove),
-          onPressed: () {},
+          onPressed: onDecrement ?? () {},
         ),
         const SizedBox(width: 10),
         Text(counter.toString()),
         const SizedBox(width: 10),
         BasicIconButton(
           icon: const Icon(Icons.add),
-          onPressed: () {},
+          onPressed: onIncrement ?? () {},
         ),
       ],
     );
