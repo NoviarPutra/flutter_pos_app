@@ -18,9 +18,9 @@ void main() async {
   await GetStorage.init();
 
   FlavorConfig(
-    name: 'Pos App',
+    name: 'Pos App Dev',
     variables: {
-      'baseUrl': dotenv.env['BASE_URL_PROD'],
+      'baseUrl': dotenv.env['BASE_URL_DEV'],
     },
   );
 

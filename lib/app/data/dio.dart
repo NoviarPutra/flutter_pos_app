@@ -4,7 +4,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_flavor/flutter_flavor.dart';
 import 'package:pos_app/app/data/interceptor.dart';
 
 class DioInstance {
@@ -17,7 +17,7 @@ class DioInstance {
   static Dio init() {
     Dio dio = Dio(
       BaseOptions(
-        baseUrl: dotenv.env['BASE_URL']!,
+        baseUrl: FlavorConfig.instance.variables['baseUrl']!,
       ),
     );
 
