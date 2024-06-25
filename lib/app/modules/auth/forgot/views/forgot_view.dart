@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import '../controllers/forgot_controller.dart';
 
 class ForgotView extends GetView<ForgotController> {
-  const ForgotView({Key? key}) : super(key: key);
+  const ForgotView({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
