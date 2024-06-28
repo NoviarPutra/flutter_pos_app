@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/admin/bindings/admin_binding.dart';
+import '../modules/admin/views/admin_view.dart';
 import '../modules/auth/forgot/bindings/forgot_binding.dart';
 import '../modules/auth/forgot/views/forgot_view.dart';
 import '../modules/auth/login/bindings/login_binding.dart';
@@ -57,6 +59,11 @@ class AppPages {
       name: _Paths.FORGOT,
       page: () => const ForgotView(),
       binding: ForgotBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADMIN,
+      page: () => const AdminView(),
+      binding: AdminBinding(),
     ),
   ];
 }
