@@ -25,7 +25,9 @@ class HomeView extends GetView<HomeController> {
         ),
         actions: [
           BasicIconButton(
-              icon: const Icon(Icons.shopping_bag_outlined), onPressed: () {})
+            icon: const Icon(Icons.shopping_bag_outlined),
+            onPressed: () => Get.toNamed('/cart'),
+          )
         ],
       ),
       body: Column(
