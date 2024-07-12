@@ -12,6 +12,7 @@ abstract class Routes {
   static const FORGOT = _Paths.FORGOT;
   static const ADMIN = _Paths.ADMIN;
   static const CART = _Paths.CART;
+  static const EXPIRED = _Paths.EXPIRED;
 }
 
 abstract class _Paths {
@@ -25,4 +26,5 @@ abstract class _Paths {
   static const FORGOT = '/forgot';
   static const ADMIN = '/admin';
   static const CART = '/cart';
+  static const EXPIRED = '/expired';
 }

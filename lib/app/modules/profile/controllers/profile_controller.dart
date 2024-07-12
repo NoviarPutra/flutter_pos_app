@@ -18,8 +18,9 @@ class ProfileController extends GetxController {
     super.onClose();
   }
 
-  void logout() {
-    storage.erase();
+  Future<void> logout() async {
+    await storage.erase();
+    Get.deleteAll();
     Get.offAllNamed('/login');
   }
 }

@@ -10,6 +10,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:pos_app/utils/initial_screen.dart';
 
 import 'app/routes/app_pages.dart';
+import 'utils/check_expired_token.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,6 +25,7 @@ void main() async {
     },
   );
 
+  isTokenExpired();
   String initial = getInitialScreen();
   runApp(
     GestureDetector(

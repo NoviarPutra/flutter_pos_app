@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 import 'package:get/get.dart';
-import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
-import 'package:pos_app/app/models/cart_response_model.dart';
 import 'package:pos_app/app/widgets/basic_cart_list.dart';
 import 'package:pos_app/app/widgets/basic_elevated_icon_button.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 import '../controllers/cart_controller.dart';
 
@@ -17,24 +16,50 @@ class CartView extends GetView<CartController> {
       appBar: AppBar(
         title: const Text('Cart'),
       ),
-      body: RefreshIndicator(
-        onRefresh: () => Future.sync(() => controller.cartPaging.refresh()),
-        child: FormBuilder(
-          key: controller.formKey,
-          child: PagedListView<int, DataCartResponse>(
-            pagingController: controller.cartPaging,
-            builderDelegate: PagedChildBuilderDelegate<DataCartResponse>(
-              itemBuilder: (context, item, index) => FormBuilderCheckbox(
-                name: item.id.toString(),
-                title: BasicCartList(
-                  total: item.total.toString(),
+      body: Obx(
+        () => Skeletonizer(
+          enabled: controller.isLoading.value,
+          enableSwitchAnimation: true,
+          child: ListView.builder(
+            itemCount: controller.carts.isEmpty ? 1 : controller.carts.length,
+            itemBuilder: (context, index) {
+              if (controller.carts.isEmpty) {
+                return const Center(
+                  child: Text('No carts available'),
+                );
+              }
+              String imageUrl = controller.carts[index].productImage ?? '';
+              String name = controller.carts[index].productName ?? '';
+              String total = controller.carts[index].totalPrice.toString();
+              return FormBuilderCheckboxGroup(
+                name: 'carts',
+                options: [
+                  FormBuilderFieldOption(
+                    value: controller.carts[index],
+                    child: BasicCartList(
+                      imageUrl: imageUrl,
+                      name: name,
+                      total: total,
+                    ),
+                  ),
+                ],
+                decoration: const InputDecoration(
+                  contentPadding: EdgeInsets.zero,
+                  border: InputBorder.none,
                 ),
-                onChanged: (value) => value!
-                    ? controller.cartList.add(item)
-                    : controller.cartList
-                        .removeWhere((element) => element.id == item.id),
-              ),
-            ),
+                onChanged: (value) {
+                  if (value != null) {
+                    if (value.isNotEmpty) {
+                      controller.cartList.add(controller.carts[index]);
+                    } else {
+                      controller.cartList.removeWhere(
+                        (element) => element.id == controller.carts[index].id,
+                      );
+                    }
+                  }
+                },
+              );
+            },
           ),
         ),
       ),

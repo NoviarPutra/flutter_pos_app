@@ -4,9 +4,13 @@ import 'package:get/get.dart';
 class BasicCartList extends StatelessWidget {
   const BasicCartList({
     super.key,
+    required this.imageUrl,
+    required this.name,
     required this.total,
   });
 
+  final String imageUrl;
+  final String name;
   final String total;
 
   @override
@@ -20,14 +24,9 @@ class BasicCartList extends StatelessWidget {
               flex: 1,
               child: Container(
                 margin: const EdgeInsets.all(10),
-                child: ClipRRect(
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(40.0),
-                  ),
-                  child: Image.network(
-                    'https://via.placeholder.com/150',
-                    fit: BoxFit.fill,
-                    width: 100,
+                child: CircleAvatar(
+                  backgroundImage: NetworkImage(
+                    imageUrl,
                   ),
                 ),
               ),
@@ -38,7 +37,7 @@ class BasicCartList extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text("name"),
+                  Text(name),
                   Text(total),
                 ],
               ),
@@ -56,6 +55,47 @@ class BasicCartList extends StatelessWidget {
                         ),
                       ),
                       height: Get.height * 0.3,
+                      width: double.infinity,
+                      child: Column(
+                        children: [
+                          Expanded(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                  flex: 1,
+                                  child: Container(
+                                    alignment: Alignment.topLeft,
+                                    margin: const EdgeInsets.all(10),
+                                    decoration: const BoxDecoration(
+                                      color: Colors.blue,
+                                    ),
+                                    child: const Text(
+                                      "Detail Product",
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 1,
+                                  child: Container(
+                                    alignment: Alignment.topRight,
+                                    margin: const EdgeInsets.all(10),
+                                    decoration: const BoxDecoration(
+                                      color: Colors.red,
+                                    ),
+                                    child: const Text(
+                                      "Edit",
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Expanded(
+                            child: Text("Delete"),
+                          )
+                        ],
+                      ),
                     ),
                   );
                 },

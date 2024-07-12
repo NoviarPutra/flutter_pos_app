@@ -7,6 +7,10 @@ import 'package:pos_app/app/routes/app_pages.dart';
 GetStorage storage = GetStorage();
 String getInitialScreen() {
   final isLogin = storage.read('isLogin');
+  final isExpired = storage.read('isExpired');
+  if (isExpired != null && isExpired == true) {
+    return Routes.EXPIRED;
+  }
   if (isLogin == true) {
     String? userJson = storage.read('user');
     if (userJson != null) {
